@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+    <head>
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet"> 
+        <meta charset="utf-8">
+        <title>cube</title>
+        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="styles/dark.css">
+        <link rel="stylesheet" href="styles/classic.css">
+        <script>
+            var settings = false;
+            function togSet() {
+                if (settings) {
+                    settings = false;
+                    document.getElementById("settings").style.display = "none";
+                } else {
+                    settings = true;
+                    document.getElementById("settings").style.display = "block";
+                }
+            }
+            var themeNum = 0;
+            var themeWords = "";
+
+            var classicMode = false;
+            var classicWords = "";
+            function classic() {
+                if (classicMode) {
+                    document.getElementById("classic").innerText = "set rounded cubies";
+                    classicWords = "";
+                    classicMode = false;
+                } else {
+                    document.getElementById("classic").innerText = "set square cubies";
+                    classicWords = "classic";
+                    classicMode = true;
+                }
+                cssRefresh();
+            }
+            function colorMode() {
+                if (themeNum < 2) {
+                    themeNum ++;
+                } else {
+                    themeNum = 0;
+                }
+                cssRefresh();
+            }
+            function cssRefresh() {
+                if (themeNum == 0) {
+                    themeWords = "dark";
+                } else if (themeNum == 1) {
+                    themeWords = "light";
+                } else if (themeNum == 2) {
+                    themeWords = "neutral";
+                }
+                document.body.classList = themeWords+" "+classicWords;
+            }
+
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <a href="controls.html" target="_blank">controls</a>
+            <a href="#" onclick="togSet()">settings</a>
+        </div>
+        <div id="settings" style="display: none">
+            <a href="#" onclick="colorMode()">toggle color mode</a>
+            <a id="classic" onclick="classic()" href="#">set rounded cubies</a>
+        </div>
+        <div class="cubeWrapper">
+            <div class="face" id="u">
+                <div id="c1" class="cubie y corner"></div>
+                <div id="e1" class="cubie y edge"></div>
+                <div id="c2" class="cubie y corner"></div>
+                <div id="e4" class="cubie y edge"></div>
+                <div id="" class="cubie y center"></div>
+                <div id="e2" class="cubie y edge"></div>
+                <div id="c4" class="cubie y corner"></div>
+                <div id="e3" class="cubie y edge"></div>
+                <div id="c3" class="cubie y corner"></div>
+            </div>
+            <div class="flex">
+                <div class="face flexChild" id="l">
+                    <div id="c1b" class="cubie o corner"></div>
+                    <div id="e4a" class="cubie o edge"></div>
+                    <div id="c4a" class="cubie o corner"></div>
+                    <div id="e5a" class="cubie o edge"></div>
+                    <div id="" class="cubie o center"></div>
+                    <div id="e8a" class="cubie o edge"></div>
+                    <div id="c8a" class="cubie o corner"></div>
+                    <div id="e12a" class="cubie o edge"></div>
+                    <div id="c5b" class="cubie o corner"></div>
+                </div>
+                <div class="face flexChild" id="f">
+                    <div id="c4b" class="cubie b corner"></div>
+                    <div id="e3a" class="cubie b edge"></div>
+                    <div id="c3a" class="cubie b corner"></div>
+                    <div id="e8" class="cubie b edge"></div>
+                    <div id="" class="cubie b center"></div>
+                    <div id="e7" class="cubie b edge"></div>
+                    <div id="c5a" class="cubie b corner"></div>
+                    <div id="e9a" class="cubie b edge"></div>
+                    <div id="c6b" class="cubie b corner"></div>
+                </div>
+                <div class="face flexChild" id="r">
+                    <div id="c3b" class="cubie r corner"></div>
+                    <div id="e2a" class="cubie r edge"></div>
+                    <div id="c2a" class="cubie r corner"></div>
+                    <div id="e7a" class="cubie r edge"></div>
+                    <div id="" class="cubie r center"></div>
+                    <div id="e6a" class="cubie r edge"></div>
+                    <div id="c6a" class="cubie r corner"></div>
+                    <div id="e10a" class="cubie r edge"></div>
+                    <div id="c7b" class="cubie r corner"></div>
+                </div>
+                <div class="face flexChild" id="b">
+                    <div id="c2b" class="cubie g corner"></div>
+                    <div id="e1a" class="cubie g edge"></div>
+                    <div id="c1a" class="cubie g corner"></div>
+                    <div id="e6" class="cubie g edge"></div>
+                    <div id="" class="cubie g center"></div>
+                    <div id="e5" class="cubie g edge"></div>
+                    <div id="c7a" class="cubie g corner"></div>
+                    <div id="e11a" class="cubie g edge"></div>
+                    <div id="c8b" class="cubie g corner"></div>
+                </div>
+            </div>
+            <div class="face" id="d">
+                <div id="c5" class="cubie w corner"></div>
+                <div id="e9" class="cubie w edge"></div>
+                <div id="c6" class="cubie w corner"></div>
+                <div id="e12" class="cubie w edge"></div>
+                <div id="" class="cubie w center"></div>
+                <div id="e10" class="cubie w edge"></div>
+                <div id="c8" class="cubie w corner"></div>
+                <div id="e11" class="cubie w edge"></div>
+                <div id="c7" class="cubie w corner"></div>
+            </div>
+        </div>
+        <script src="scripts/main.js"></script>
+        <script>
+            cssRefresh();
+        </script>
+    </body>
+</html>
